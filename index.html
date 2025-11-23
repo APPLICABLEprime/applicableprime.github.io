@@ -15,7 +15,7 @@
     h1 {
       text-align: center;
       letter-spacing: 3px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       font-size: 24px;
     }
     h2 {
@@ -45,16 +45,48 @@
       font-size: 13px;
       white-space: pre-wrap;
     }
+    #codeInput {
+      display: block;
+      margin: 0 auto 25px auto;
+      padding: 6px 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      outline: none;
+    }
+    #codeInput:focus {
+      border-color: #999;
+    }
   </style>
 </head>
 <body>
 
 <h1>PRIME</h1>
 
-<!-- Hidden autoplaying audio using video method (Option 2) -->
-<video autoplay loop playsinline style="width:1px;height:1px;opacity:0;position:absolute;left:0;top:0;">
+<input id="codeInput" type="text" autocomplete="off" spellcheck="false" placeholder="">
+
+<audio id="bgm" loop>
   <source src="https://raw.githubusercontent.com/APPLICABLEprime/applicableprime.github.io/main/1%20hour%20loop%20of%20the%20smlwiki%20(mp3cut.net).mp3" type="audio/mpeg">
-</video>
+</audio>
+
+<script>
+  (function () {
+    const input = document.getElementById("codeInput");
+    const audio = document.getElementById("bgm");
+
+    if (!input || !audio) return;
+
+    input.addEventListener("input", () => {
+      const value = input.value.trim().toUpperCase();
+      if (value === "FAITH") {
+        audio.play().catch(() => {});
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+  })();
+</script>
 
 <p class="note">
 This document is an internal reconstruction of events connected to the PRIME phenomenon, compiled from fragmented timelines, partial memories, and collapsed instances.
